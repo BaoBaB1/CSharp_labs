@@ -7,7 +7,7 @@ using lab6;
 namespace Lab6Tests
 {
   [TestClass()]
-  public abstract class TestProviderDAO : TestGenericDAO<Provider>
+  public class TestProviderDAO : TestGenericDAO<Provider>
   {
     protected IProviderDAO providerDAO = null;
     protected Product prod1 = null;
@@ -82,7 +82,7 @@ namespace Lab6Tests
     }
 
     [TestMethod]
-    public void TestGetAllStudentOfGroup()
+    public void TestGetAllProductsOfPrvoider()
     {
       createEntitiesForProvider();
       Assert.IsNotNull(prod1, "Please, create object for prod1");
@@ -91,11 +91,11 @@ namespace Lab6Tests
       entity1.Products.Add(prod1);
       prod1.Provider = entity1;
 
-      entity2.Products.Add(prod2);
-      prod2.Provider = entity2;
+      entity1.Products.Add(prod2);
+      prod2.Provider = entity1;
 
-      entity3.Products.Add(prod3);
-      prod3.Provider = entity3;
+      entity1.Products.Add(prod3);
+      prod3.Provider = entity1;
 
       Provider savedObject = null;
       try

@@ -11,7 +11,7 @@ using lab6;
 namespace Lab6Tests
 {
   [TestClass()]
-  public abstract class TestProductDAO : TestGenericDAO<Product>
+  public class TestProductDAO : TestGenericDAO<Product>
   {
     protected IProductDAO productDAO = null;
     protected IProviderDAO providerDAO = null;

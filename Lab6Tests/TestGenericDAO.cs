@@ -34,7 +34,7 @@ namespace Lab6Tests
 
     public TestGenericDAO()
     {
-      session = openSession("localhost", 5432, "university", "postgres", "111111");
+      session = openSession("localhost", 5432, "csharp", "postgres", "123");
     }
 
     public TestContext TestContext
