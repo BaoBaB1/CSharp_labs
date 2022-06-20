@@ -133,6 +133,15 @@ namespace CS_lab5
         GridViewRow row = GridView1.Rows[index];
         string providerName = ((Label)(row.Cells[0].FindControl("myLabel1"))).Text;
         Session["keyProviderName"] = providerName;
+
+        ISession session = (ISession)Session["hbmsession"];
+        AbsDAOFactory factory = new FactoryDAO(session);
+        IProviderDAO providerDAO = factory.GetProviderDAO();
+        if (isBlockedProvider(providerDAO.GetProviderByName(providerName)))
+        {
+          ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "russian warship, go f*ck yourself! No products from russia allowed" + "');", true);
+          return;
+        }
         Response.Redirect("ProductsForm.aspx");
       }
     }
@@ -145,5 +154,12 @@ namespace CS_lab5
       GridView1.DataBind();
     }
 
+    // const Provider 
+    protected bool isBlockedProvider(in Provider p)
+    {
+      // any case: lower, upper or mixed is applicable 
+      // e.g Russia, russia, rusSia ... 
+      return p.Country.ToUpper() == "RUSSIA" || p.Country.ToUpper() == "РОССИЯ" || p.Country.ToUpper() == "РОСІЯ";
+    }
   }
 }

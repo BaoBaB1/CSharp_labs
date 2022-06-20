@@ -13,6 +13,7 @@ namespace CS_lab5
 {
   public partial class ProductsForm : System.Web.UI.Page
   {
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -33,18 +34,16 @@ namespace CS_lab5
     protected void ibInsert_Click(object sender, EventArgs e)
     {
       string keyProvider = (string)Session["keyProviderName"];
-      
-      string s1 = ((TextBox)GridView1.FooterRow.FindControl("MyFooterTextBox1")).Text;
-      string s2 = ((TextBox)GridView1.FooterRow.FindControl("MyFooterTextBox2")).Text;
-      string s3 = ((TextBox)GridView1.FooterRow.FindControl("MyFooterTextBox3")).Text;
-      //Создаем сессию
       ISession session = (ISession)Session["hbmsession"];
       AbsDAOFactory factory = new FactoryDAO(session);
       IProviderDAO providerDAO = factory.GetProviderDAO();
       Provider p = providerDAO.GetProviderByName(keyProvider);
 
+      string s1 = ((TextBox)GridView1.FooterRow.FindControl("MyFooterTextBox1")).Text;
+      string s2 = ((TextBox)GridView1.FooterRow.FindControl("MyFooterTextBox2")).Text;
+      string s3 = ((TextBox)GridView1.FooterRow.FindControl("MyFooterTextBox3")).Text;
+      
       IProductDAO productDAO = factory.GetProductDAO();
-
       Product prod = new Product();
       prod.Name = s1;
       prod.Price = Convert.ToDouble(s2);
@@ -70,7 +69,6 @@ namespace CS_lab5
       IProviderDAO providerDAO = factory.GetProviderDAO();
       Provider p = providerDAO.GetProviderByName(keyProvider);
       IProductDAO productDAO = factory.GetProductDAO();
-
       Product prod = new Product();
       prod.Name = nameTextBox.Text;
       prod.Price = Convert.ToDouble(priceTextBox.Text);
