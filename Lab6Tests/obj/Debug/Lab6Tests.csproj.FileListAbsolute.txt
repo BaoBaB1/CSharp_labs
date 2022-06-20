@@ -64,3 +64,4 @@ D:\Visual Studio\Visual Studio projects\C#\CS_lab6_2\Lab6\Lab6Tests\bin\Debug\Sy
 D:\Visual Studio\Visual Studio projects\C#\CS_lab6_2\Lab6\Lab6Tests\obj\Debug\Lab6Tests.csproj.CopyComplete
 D:\Visual Studio\Visual Studio projects\C#\CS_lab6_2\Lab6\Lab6Tests\obj\Debug\Lab6Tests.dll
 D:\Visual Studio\Visual Studio projects\C#\CS_lab6_2\Lab6\Lab6Tests\obj\Debug\Lab6Tests.pdb
+D:\Visual Studio\Visual Studio projects\C#\CS_lab6_2\Lab6\Lab6Tests\bin\Debug\WebDriver.dll
